@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактирай продукт{% endblock %}
+
+{% block content %}
+
+<main class="form-container">
+    <form style="gap: 0" class="form" method="POST">
+        <label>Име:</label>
+        <input type="text" name="name" value="{{ product.name }}" required>
+
+        <label>Описание:</label>
+        <textarea name="description">{{ product.description }}</textarea>
+
+        <label>Цена:</label>
+        <input type="number" name="price" value="{{ product.price }}" step="0.01" required>
+
+        <label>Категория:</label>
+        <input type="text" name="category" value="{{ product.category }}">
+
+        <label>Наличност:</label>
+        <input type="number" name="stock" value="{{ product.stock }}">
+
+        <label>URL на снимка:</label>
+        <input type="text" name="image_url" value="{{ product.image_url }}">
+
+        <input style="margin-top: 20px" class="submit" type="submit" value="Запази промените"/>
+    </form>
+</main>
+
+{% endblock %}

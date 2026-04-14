@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Моите поръчки{% endblock %}
+
+{% block content %}
+
+{% set status_labels = {
+    'pending': 'В изчакване',
+    'shipped': 'Изпратена',
+    'delivered': 'Доставена'
+} %}
+
+
+<div class="form-container">
+    <h2>📦 Моите поръчки</h2>
+
+    {% if orders %}
+    {% for order in orders %}
+    <div style="border: 1px solid #ccc; border-radius: 10px; margin-bottom: 20px; padding: 1em; background: white;">
+        <p><strong>Поръчка #{{ order.id }}</strong></p>
+        <p>Дата: {{ order.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+        <p>Статус: <strong>{{ status_labels[order.status] }}</strong></p>
+        <p>Плащане: <strong> {% if order.payment_status.value == 'успешно' %}
+    <span class="status success">
+      <i class="fas fa-check-circle"></i> Успешно платено
+    </span>
+  {% elif order.payment_status.value == 'изчакване' %}
+    <span class="status pending">
+      <i class="fas fa-hourglass-half"></i> В изчакване
+    </span>
+  {% elif order.payment_status.value == 'отказано' %}
+    <span class="status failed">
+      <i class="fas fa-times-circle"></i> Неуспешно
+    </span>{% else %}
+            <span class="status unknown">?</span>
+            {% endif %} </strong></p>
+        <ul>
+            {% for item in order.items %}
+            <li>{{ item.product.name }} – {{ item.quantity }} бр. × {{ item.price }} лв.</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Общо:</strong> {{ '%.2f'|format(order.total_price) }} лв.</p>
+
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Нямаш направени поръчки.</p>
+    {% endif %}
+</div>
+{% endblock %}

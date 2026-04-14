@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Тестово плащане{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Плащане на поръчка #{{ order.id }}</h2>
+
+    <form style="gap: 0;" class="form" method="POST">
+        <label>Име на картодържател</label>
+        <input type="text" name="card_name" required>
+
+        <label>Номер на карта</label>
+        <input type="text" name="card_number" maxlength="16" pattern="\d{16}" required>
+
+        <label>Дата на валидност (MM/YY)</label>
+        <input type="text" name="expiry" pattern="\d{2}/\d{2}" required>
+
+        <label>CVV</label>
+        <input type="text" name="cvv" maxlength="4" pattern="\d{3,4}" required>
+
+        <label>Имейл за потвърждение</label>
+        <input type="email" name="email" required>
+
+        <label>Адрес за доставка</label>
+        <textarea name="shipping_address" rows="3"></textarea>
+
+        <input class="submit" type="submit" value="Потвърди плащането"/>
+    </form>
+</div>
+{% endblock %}

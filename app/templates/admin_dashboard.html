@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="admin-dashboard">
+  <aside class="admin-sidebar">
+    <ul>
+      <li><a href="{{ url_for('main.admin_products') }}">📦 Продукти</a></li>
+      <li><a href="{{ url_for('main.admin_orders') }}">🧾 Поръчки</a></li>
+      <li><a href="{{ url_for('main.admin_users') }}">👤 Потребители</a></li>
+    </ul>
+  </aside>
+
+  <section class="admin-content">
+    {% block admin_content %}{% endblock %}
+  </section>
+</div>
+{% endblock %}

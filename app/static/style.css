@@ -1,0 +1,1261 @@
+/* app/static/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+}
+
+input[type="text"], input[type="email"], textarea {
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid #ff6200;
+
+}
+
+
+header {
+    background: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5em;
+    padding: 2em;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100px;
+    max-height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.price {
+    display: block;
+    margin-top: 0.5em;
+    font-weight: bold;
+    color: #009578;
+}
+.form-container {
+    max-width: 500px;
+    margin: 2em auto;
+    background: white;
+    padding: 2em 3em 2em 2em;
+    border:  1px solid #ff6200;
+    border-radius: 10px;
+    box-shadow:
+            3px 3px 3px #ff6200,
+            10px 10px 10px #144301;
+}
+.form-container a{
+    display: inline;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    background: #000000;
+    padding: 0.5em;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    text-shadow: 0 1px 1px #a5a5a5;
+    border: 2px solid #ff6200;
+    border-radius: 10px;
+}
+.form-container p{
+    font-weight: bold;
+}
+
+form label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    border-radius: 0.5rem;
+    margin-top: 10px;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid #ff6200;
+    cursor: text;
+
+}
+/*form input:hover{
+    transition: all 0.5s ease;
+    background-color: #27ae60;
+}*/
+
+form button {
+    padding: 0.7em 1.5em;
+    margin-top: 5px;
+    background: #ffffff;
+    color: #ff6200;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #ededed;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 1em;
+    background: #f0f0f0;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5em;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar ul li a:hover {
+    color: #009578;
+    font-weight: bold;
+}
+
+.product-area {
+    flex-grow: 1;
+    padding: 1em;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 1em;
+}
+
+.login-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.login-link:hover {
+    background: white;
+    color: #333;
+}
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 1em 0;
+}
+
+.search-form input,
+.search-form select,
+.search-form button {
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.admin-button {
+    background-color: #c0392b;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    float: right;
+}
+.admin-button:hover {
+    background-color: #e74c3c;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2c3e50;
+    padding: 10px;
+    gap: 15px;
+    width:  100%;
+    border-radius: 30px;
+}
+
+.navbar a,
+.navbar .dropdown-toggle {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar .logo {
+    display: flex;
+    position: relative;
+}
+
+.navbar .logo img {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar .nav-right {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.navbar .logo .hover-text {
+    position: absolute;
+    margin-top:20%;
+    left: 110%;
+    opacity: 0;
+    color: white;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+     z-index: 10;
+}
+
+.navbar .logo:hover .hover-text {
+    opacity: 1;
+}
+
+/* Икони с разширяващ се текст */
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #34495e;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0 12px;
+    gap: 10px;
+    white-space: nowrap;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.icon-button i {
+    font-size: 18px;
+    line-height: 1;
+    /*margin-top: 1px;  🎯 това ще намали “повдигането” */
+    margin: 20%;
+    margin-right:5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button .hover-text {
+    opacity: 0;
+    color: white;
+    transition: opacity 0.3s ease;
+    font-size: 0.9em;
+}
+
+.icon-button:hover {
+    width: 140px;
+    border-radius: 20px;
+    background-color: #27ae60;
+    padding-right:25%;
+}
+
+.icon-button:hover .hover-text {
+    opacity: 1;
+}
+
+
+
+/* Dropdown меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #2c3e50;
+    top: 45px;
+    right: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #34495e;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.search-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+
+.search-bar {
+    display: flex;
+    background: white;
+    padding: 5px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    gap: 5px;
+    align-items: center;
+    margin-left: 60px;
+    margin-right: 10px;
+    width: 80%;
+    cursor: text;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+}
+
+.search-bar button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    height: 35px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #219150;
+}
+
+#filtersPanel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 60px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #ff6200;
+    padding: 0 30px;
+    width: 30%;
+    z-index: 100;
+    margin-top: 10px;
+}
+
+/* Скриване на филтър панела по подразбиране */
+#filtersPanel.hidden {
+    display: none !important;
+}
+
+
+#filtersPanel.active {
+    display: flex;
+}
+
+#filtersPanel select{
+    padding: 15px;
+    font-size: 1em;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+#filtersPanel input {
+    padding: 15px;
+    font-size: 1em;
+    width: 93%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+#filtersPanel button {
+    padding: 8px 12px 8px 12px;
+    height: auto;
+    margin-top: 5px;
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #ff6200;
+    font-size: 33px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#filtersPanel button:hover {
+    transition: all 1s ease;
+    background: rgba(91, 255, 86, 0.55);
+}
+
+#filtersPanel.show {
+    max-height: 500px;
+    opacity: 1;
+    padding: 30px;
+}
+
+.filters-hidden {
+    display: none;
+}
+
+.filters-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.admin-dashboard {
+    display: flex;
+    gap: 20px;
+}
+
+.admin-sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 1em;
+    border-right: 1px solid #ccc;
+    height: 100%;
+}
+
+.admin-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-sidebar li {
+    margin-bottom: 10px;
+}
+
+.admin-sidebar a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.admin-sidebar a:hover {
+    color: #27ae60;
+}
+
+.admin-content {
+    flex-grow: 1;
+    padding: 1em;
+}
+
+.add-product-btn {
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 10px 15px;
+    background-color: #27ae60;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-product-btn:hover {
+    background-color: #1e8449;
+}
+
+.cart-container {
+    max-width: 80%;
+    margin: 2em auto;
+    background: white;
+    padding: 2em 3em 2em 2em;
+    border:  1px solid #ff6200;
+    border-radius: 10px;
+    box-shadow:
+            3px 3px 3px #ff6200,
+            10px 10px 10px #144301;
+}
+.cart-container p{
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+
+}
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 10px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+.cart-table th {
+    font-size: 1.1em;
+    color: #000000;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.cart-table tr:nth-child(even) {
+    background: rgba(255,255,255,0.2);
+}
+
+.cart-table input[type="number"] {
+    padding: 1rem 0.75rem;
+    width: 30px;
+    border-radius: 3rem;
+    background-color: #ffffff;
+    color: black;
+    margin-top: 10px;
+    border: 2px solid #ff6200;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cart-table button {
+    padding: 1rem 1rem 1rem 2.5%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: #ffffff;
+    color: black;
+    margin-top: 10px;
+    border: 2px solid #ff6200;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cart-table button:hover {
+    background-color: #007f65;
+}
+
+.cart-summary {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: right;
+    margin-bottom: 1em;
+    color: #000000;
+}
+
+.cart-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.cart-actions form,
+.cart-actions a {
+    flex: 1;
+    min-width: 200px;
+}
+
+.cart-actions button,
+.cart-actions a {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #009578;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.cart-actions button:hover,
+.cart-actions a:hover {
+    background-color: #007f65;
+}
+
+.product-list-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-row {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.product-row img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-details h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.product-details p {
+    margin: 5px 0;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-button.red {
+    background-color: #c0392b;
+}
+
+.admin-button.red:hover {
+    background-color: #e74c3c;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin-top: 1em;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-table th {
+    background-color: #2c3e50;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.admin-table tr:hover {
+    background-color: #eafaf1;
+}
+
+.action-btn {
+    padding: 6px 10px;
+    margin: 0 2px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.action-btn.edit {
+    background-color: #3498db;
+}
+
+.action-btn.delete {
+    background-color: #e74c3c;
+}
+
+.action-btn.pay {
+    background-color: #27ae60;
+}
+
+.action-btn:hover {
+    opacity: 0.85;
+}
+
+.admin-table select {
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.action-btn.save {
+    background-color: #2980b9;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.action-btn.save:hover {
+    background-color: #3498db;
+}
+
+.payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pay-button {
+    display: block;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pay-button:hover {
+    transform: scale(1.03);
+}
+
+/* Различни цветове за различните методи */
+.pay-button.test {
+    background: #27ae60; /* зелено */
+}
+
+.pay-button.paypal {
+    background: #003087; /* PayPal синьо */
+}
+
+.pay-button.stripe {
+    background: #635bff; /* Stripe лилаво */
+}
+
+.payment-container {
+    max-width: 500px;
+    margin: 2em auto;
+    background: white;
+    padding: 2em 3em 2em 2em;
+    border:  1px solid #ff6200;
+    border-radius: 10px;
+    box-shadow:
+            3px 3px 3px #ff6200,
+            10px 10px 10px #144301;
+}
+
+.order-summary {
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.order-summary h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.order-items {
+    list-style: none;
+    padding-left: 0;
+    margin: 1em 0;
+}
+
+.order-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-total {
+    font-size: 1.2em;
+    margin-top: 1em;
+    color: #000;
+}
+
+.payment-status {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.payment-status.pending {
+    background-color: #f39c12;
+    color: white;
+}
+
+.payment-status.success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.payment-status.failed {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Използва CSS от предишния ми отговор за .pay-button и .payment-buttons */
+
+.status.success {
+    color: green;
+    font-weight: bold;
+}
+
+.status.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status.failed {
+    color: red;
+    font-weight: bold;
+}
+
+.flash-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 1em;
+    margin: 1em auto;
+    width: fit-content;
+    border-radius: 5px;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.payment-container {
+    max-width: 500px;
+    margin: 2em auto;
+    background: white;
+    padding: 2em 3em 2em 2em;
+    border:  1px solid #ff6200;
+    border-radius: 10px;
+    box-shadow:
+            3px 3px 3px #ff6200,
+            10px 10px 10px #144301;
+}
+
+.order-summary h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.order-items {
+    list-style: none;
+    padding: 0;
+}
+
+.order-items li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+.order-total {
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+.payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1.5em;
+}
+
+.pay-button {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    color: #000000;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pay-button.test {
+    background-color: #ffffff;
+    border:  2px solid #ff6200;
+}
+
+.pay-button.test:hover {
+    background-color: #219150;
+    color: white;
+}
+
+
+
+.payment-status {
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.payment-status.успешно {
+    color: green;
+}
+
+.payment-status.изчакване {
+    color: orange;
+}
+
+.payment-status.отказано {
+    color: red;
+}
+
+/*special save button*/
+
+/* From Uiverse.io by ilkhoeri */
+.action_has {
+  --color: 0 0% 60%;
+  --color-has: 211deg 100% 48%;
+  --sz: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--sz) * 2.5);
+  width: calc(var(--sz) * 2.5);
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.375rem;
+  border: 0.0625rem solid hsl(var(--color));
+  margin-top:15px;
+    margin-left: 43%;
+}
+
+.has_saved:hover {
+  border-color: hsl(var(--color-has));
+}
+.has_liked:hover svg,
+.has_saved:hover svg {
+  color: #278105;
+}
+
+.has_liked svg,
+.has_saved svg {
+  overflow: visible;
+  height: calc(var(--sz) * 1.75);
+  width: calc(var(--sz) * 1.75);
+  --ease: cubic-bezier(0.5, 0, 0.25, 1);
+  --zoom-from: 1.75;
+  --zoom-via: 0.75;
+  --zoom-to: 1;
+  --duration: 1s;
+}
+
+.has_saved:hover path[data-path="box"] {
+  transition: all 0.3s var(--ease);
+  animation: has-saved var(--duration) var(--ease) forwards;
+  fill: hsl(var(--color-has) / 0.35);
+}
+.has_saved:hover path[data-path="line-top"] {
+  animation: has-saved-line-top var(--duration) var(--ease) forwards;
+}
+.has_saved:hover path[data-path="line-bottom"] {
+  animation: has-saved-line-bottom var(--duration) var(--ease) forwards,
+    has-saved-line-bottom-2 calc(var(--duration) * 1) var(--ease)
+      calc(var(--duration) * 0.75);
+}
+
+@keyframes has-saved-line-top {
+  33.333% {
+    transform: rotate(0deg) translate(1px, 2px) scale(var(--zoom-from));
+    d: path("M 3 5 L 3 8 L 3 8");
+  }
+  66.666% {
+    transform: rotate(20deg) translate(2px, -2px) scale(var(--zoom-via));
+  }
+  99.999% {
+    transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+  }
+}
+@keyframes has-saved-line-bottom {
+  33.333% {
+    transform: rotate(0deg) translate(1px, 2px) scale(var(--zoom-from));
+    d: path("M 17 20 L 17 13 L 7 13 L 7 20");
+  }
+  66.666% {
+    transform: rotate(20deg) translate(2px, -2px) scale(var(--zoom-via));
+  }
+  99.999% {
+    transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+    d: path("M 17 21 L 17 21 L 7 21 L 7 21");
+  }
+}
+@keyframes has-saved-line-bottom-2 {
+  from {
+    d: path("M 17 21 L 17 21 L 7 21 L 7 21");
+  }
+  to {
+    transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+    d: path("M 17 20 L 17 13 L 7 13 L 7 20");
+    fill: white;
+  }
+}
+@keyframes has-saved {
+  33.333% {
+    transform: rotate(0deg) translate(1px, 2px) scale(var(--zoom-from));
+  }
+  66.666% {
+    transform: rotate(20deg) translate(2px, -2px) scale(var(--zoom-via));
+  }
+  99.999% {
+    transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+  }
+}
+
+
+/* From Uiverse.io by bociKond */
+.form {
+  --bg-light: #000000;
+  --bg-dark: #ff0000;
+  --clr: #58bc82;
+  --clr-alpha: rgba(255, 255, 255, 0.38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+padding-left: 20%;
+}
+
+.form input {}
+
+.form .input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--clr-alpha);
+  outline: 2px solid #ff6200;
+}
+
+.form input[type="email"]:focus,
+.form input[type="password"]:focus {
+  outline: 2px solid var(--clr);
+}
+
+.label {
+  align-self: flex-start;
+  color: var(--clr);
+  font-weight: 600;
+}
+
+.form .submit {
+  padding: 1rem 0.75rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+    margin-bottom: 10%;
+  gap: 0.5rem;
+  border-radius: 3rem;
+  background-color: white;
+  color: var(--bg-light);
+  border: 2px solid #ff6200;
+  cursor: pointer;
+  transition: all 300ms;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form .submit:hover {
+  background-color: var(--clr);
+  color: white;
+}
+
+.span {
+  text-decoration: none;
+    margin-left: 15%;
+  color: var(--bg-dark);
+}
+.span a {
+    background: #cccaca;
+    border-radius: 3rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 2px solid #ff6200;
+}
+.span a {
+
+  color: var(--clr);
+}
+
+/*custom checkbox*/
+/* From Uiverse.io by PriyanshuGupta28 */
+.checkbox-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-wrapper .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-wrapper .terms-label .label-text {
+    margin-left: 10px;
+}
+
+.checkbox-wrapper .checkbox-svg {
+    width: 30px;
+    height: 30px;
+}
+
+.checkbox-wrapper .checkbox-box {
+    fill: rgba(207, 205, 205, 0.425);
+    stroke: #8c00ff;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox-wrapper .checkbox-tick {
+    stroke: #8c00ff;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-box,
+.checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+}
+
+/*files*/
+input[type="file"] {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+input[type="file"]:hover {
+    background-color: #e0e0e0;
+    border-color: #27ae60;
+}
+
+#imagePreviewContainer {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+

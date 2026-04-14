@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Плащане{% endblock %}
+
+{% block content %}
+<div class="payment-container">
+    <div class="order-summary">
+        <h2>🧾 Обобщение на поръчката</h2>
+
+        <p><strong>Статус на плащане:</strong>
+            <span class="payment-status {{ order.payment_status.value }}">
+                {{ order.payment_status.value | capitalize }}
+            </span>
+        </p>
+
+        <ul class="order-items">
+
+            {% for item in order.items %}
+                {% set subtotal = item.price * item.quantity %}
+                <li>
+                    <span><img style="height: 50%;" src="{{ item.product.image_url or '/static/no-image.png' }}" alt="{{ item.product.name }}"> <h2>{{ item.product.name }}</h2></span>
+                    <span>{{ item.quantity }} × {{ '%.2f'|format(item.price) }} лв. =
+                        <strong>{{ '%.2f'|format(subtotal) }} лв.</strong>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p class="order-total">
+            <strong>Обща сума:</strong> {{ '%.2f'|format(total) }} лв.
+        </p>
+
+        {% if order.payment_status.value == 'изчакване' %}
+        <div class="payment-buttons">
+            <a href="{{ url_for('main.pay_test', order_id=order.id) }}" class="pay-button test">
+                💳 Плати с карта
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<body>
+
+    <main class="form-container">
+        <img style="margin-left: 46%" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        <form class="form" method="POST" action="/login">
+            <span class="input-span">
+            <label>Потребителско име:</label>
+            <input type="text" name="username" required>
+                </span>
+            <span class="input-span">
+            <label>Парола:</label>
+            <input type="password" name="password" required>
+</span>
+            <input class="submit" type="submit" value="Вход" />
+        </form>
+
+        <span class="span">Don't have an account? <a href="{{ url_for('main.register') }}">Регистрирайте се тук</a></span>
+    </main>
+</body>
+{% endblock %}

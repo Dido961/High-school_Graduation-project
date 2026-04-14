@@ -1,0 +1,41 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block title %}Редакция на потребител{% endblock %}
+
+{% block admin_content %}
+<h2>👤 Редакция на потребител</h2>
+
+<form method="POST" class="form-container">
+    <label for="username">Потребителско име</label>
+    <input type="text" name="username" id="username" value="{{ user.username }}" required>
+
+    <label for="email">Имейл</label>
+    <input type="email" name="email" id="email" value="{{ user.email }}" required>
+
+    <label>
+        <!-- From Uiverse.io by PriyanshuGupta28 -->
+        <div class="checkbox-wrapper">
+            <input id="terms-checkbox-37" name="checkbox" type="checkbox" {% if user.is_admin %}checked{% endif %}>
+            <label class="terms-label" for="terms-checkbox-37">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200" class="checkbox-svg">
+                    <mask fill="white" id="path-1-inside-1_476_5-37">
+                        <rect height="200" width="200"></rect>
+                    </mask>
+                    <rect mask="url(#path-1-inside-1_476_5-37)" stroke-width="40" class="checkbox-box" height="200" width="200"></rect>
+                    <path stroke-width="15" d="M52 111.018L76.9867 136L149 64" class="checkbox-tick"></path>
+                </svg>
+                <span class="label-text">Администратор</span>
+            </label>
+        </div>
+    </label>
+
+    <input class="submit" type="submit" value="💾 Запази промените" />
+</form>
+
+<form method="POST" class="form-container" style="margin-top: 2em;" onsubmit="return confirm('Сигурен ли си, че искаш да изтриеш този потребител?');">
+    <input type="hidden" name="delete_user" value="1">
+    <button type="submit" style="background: #c0392b;">🗑️ Изтрий потребителя</button>
+</form>
+
+<a href="{{ url_for('main.admin_users') }}" class="back-link">← Назад към потребителите</a>
+{% endblock %}

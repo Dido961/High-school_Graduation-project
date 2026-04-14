@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Начало{% endblock %}
+
+{% block content %}
+    <!-- съдържанието на началната страница тук -->
+
+
+
+
+    <div class="container">
+
+
+        <main class="product-area">
+
+
+            <div class="product-grid">
+                {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ product.image_url or '/static/no-image.png' }}" alt="{{ product.name }}">
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.description }}</p>
+                    <span class="price">{{ product.price }} лв.</span>
+                    <form style="padding: 0" class= "form" method="POST" action="{{ url_for('main.add_to_cart', product_id=product.id) }}">
+    <input class="submit" type="submit" value="Добави в количката"/>
+</form>
+
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+{% endblock %}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Магазин{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <!-- Лого -->
+        <a href="{{ url_for('main.index') }}" class="logo" title="Начало">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <span class="hover-text">Начало</span>
+        </a>
+
+        <!-- Търсачка + филтри -->
+        <div class="search-wrapper">
+            <form method="GET" action="{{ url_for('main.index') }}" class="search-bar" id="searchForm">
+                <input type="text" name="query" placeholder="Търси продукти..." value="{{ request.args.get('query', '') }}">
+
+                <button type="submit" title="Търси">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <button type="button" id="toggleFilters" title="Филтрирай">
+                    <i class="fas fa-filter"></i>
+                </button>
+
+                <!-- Филтър панел (вече вътре във form-а!) -->
+                <div id="filtersPanel">
+                    <select name="category">
+                        <option value="">Всички категории</option>
+                        {% for category in categories %}
+                        <option value="{{ category }}" {% if request.args.get('category') == category %}selected{% endif %}>
+                        {{ category }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <input type="number" name="min_price" placeholder="Мин. цена" value="{{ request.args.get('min_price', '') }}">
+                    <input type="number" name="max_price" placeholder="Макс. цена" value="{{ request.args.get('max_price', '') }}">
+
+                    <button type="submit">Приложи</button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Навигация вдясно -->
+        <div class="nav-right">
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('main.cart') }}" class="icon-button" title="Количка">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="hover-text">Количка</span>
+            </a>
+            <a href="{{ url_for('main.my_orders') }}" class="icon-button" title="Моите поръчки">
+                <i class="fas fa-truck"></i>
+                <span class="hover-text">Моите поръчки</span>
+            </a>
+            <a href="{{ url_for('main.my_products') }}" class="icon-button" title="Моите продукти">
+                <i class="fas fa-box-open"></i>
+                <span class="hover-text">Моите продукти</span>
+            </a>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle" title="Профил">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="{{ url_for('main.edit_profile') }}">👤 Профил</a>
+                    {% if is_admin %}
+                    <a href="{{ url_for('main.admin_dashboard') }}">⚙️ Админ табло</a>
+                    {% endif %}
+                    <a href="{{ url_for('main.logout') }}">🚪 Изход</a>
+                </div>
+            </div>
+            {% else %}
+            <a href="{{ url_for('main.login') }}">🔐 Вход</a>
+            <a href="{{ url_for('main.register') }}">📝 Регистрация</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+<main class="main-content">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for message in messages %}
+        <div class="flash-success">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+
+    {% block content %}{% endblock %}
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleBtn = document.getElementById('toggleFilters');
+        const panel = document.getElementById('filtersPanel');
+        const toggle = document.querySelector('.dropdown-toggle');
+        const menu = document.querySelector('.dropdown-menu');
+
+        // Toggle filters
+        if (toggleBtn && panel) {
+            toggleBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                panel.classList.toggle('show');
+            });
+
+            // Скриване при клик извън панела
+            document.addEventListener('click', function (e) {
+                if (!panel.contains(e.target) && e.target !== toggleBtn) {
+                    panel.classList.remove('show');
+                }
+            });
+        }
+
+        // Toggle dropdown
+        if (toggle && menu) {
+            toggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                menu.classList.toggle('show');
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!menu.contains(e.target) && e.target !== toggle) {
+                    menu.classList.remove('show');
+                }
+            });
+        }
+    });
+</script>
+
+
+</body>
+</html>

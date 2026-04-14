@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Количка{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+    {% if items %}
+    <table class="cart-table">
+        <thead>
+        <tr>
+            <th>Продукт</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Общо</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr>
+            <td><img style="height: 25%; width: 25%" src="{{ item.product.image_url or '/static/no-image.png' }}" alt="{{ item.product.name }}"> <h2>{{ item.product.name }}</h2></td>
+            <td>
+                <form style="padding: 0" class="form" method="POST" action="{{ url_for('main.update_cart_quantity', product_id=item.product.id) }}">
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                    <button class="submit" type="submit">Обнови</button>
+                </form>
+            </td>
+            <td>{{ item.product.price }} лв.</td>
+            <td>{{ item.subtotal }} лв.</td>
+            <td>
+                <form style="padding: 0" class="form" method="POST" action="{{ url_for('main.remove_from_cart', product_id=item.product.id) }}">
+                    <button class="submit" type="submit">Премахни</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="cart-summary">
+        <strong>Общо: {{ total }} лв.</strong>
+    </div>
+
+    <div class="cart-actions">
+        <form class="form" method="POST" action="{{ url_for('main.clear_cart') }}">
+            <input style="font-size: 20px" class="submit" type="submit" value="🧹 Изчисти количката"/>
+        </form>
+        <form class="form" method="POST" action="{{ url_for('main.place_order') }}">
+            <input style="font-size: 20px" class="submit" type="submit" value="🛒 Поръчай"/>
+        </form>
+
+    </div>
+    {% else %}
+    <p>Количката е празна.</p>
+    {% endif %}
+</div>
+{% endblock %}
